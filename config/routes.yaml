@@ -1,7 +1,3 @@
 #index:
 #    path: /
-#    controller: App\Controller\DefaultController::index
-
-index:
-    path: /home/index
-    controller: App\Controller\HomeController::index
+#    controller: Jadu\AddressFinderTestServer\Controller\DefaultController::index

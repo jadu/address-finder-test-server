@@ -1,0 +1,3 @@
+#index:
+#    path: /
+#    controller: Jadu\AddressFinderTestServer\Controller\DefaultController::index

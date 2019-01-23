@@ -6,10 +6,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * PropertyController.
+ *
+ * @author Jadu Ltd.
+ */
 class PropertyController
 {
     /**
      * @Route("/property/search")
+     *
+     * @param Request $request
      */
     public function search(Request $request)
     {
@@ -20,6 +27,8 @@ class PropertyController
 
     /**
      * @Route("/property/fetch")
+     *
+     * @param Request $request
      */
     public function fetch(Request $request)
     {

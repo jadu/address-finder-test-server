@@ -17,8 +17,8 @@ class StatusController
             "", 401
         );
 
-        return new Response(
+        /*return new Response(
             '<html><body>'.$request->headers->get('X-Authentication-Key').'</body></html>'
-        );
+        );*/
     }
 }

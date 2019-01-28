@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Authentication\Authentication;
 use App\Factory\PropertySearchFactory;
+use App\Factory\PropertyFetchFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,14 +42,32 @@ class PropertyController
     }
 
     /**
-     * @Route("/property/fetch")
+     * @Route("/property/fetch/{identifier}")
      *
      * @param Request $request
+     * @param string $identifier
      */
-    public function fetch(Request $request)
+    public function fetch(Request $request, string $identifier)
     {
-        return new Response(
-            '<html><body>Fetch</body></html>'
-        );
+        $authentication = new Authentication();
+        $isAuthenticated = $authentication->authenticate($request);
+
+        if (false == $isAuthenticated) {
+            return new Response(
+                '', 401
+            );
+        }
+
+        $propertyFetchFactory = new PropertyFetchFactory();
+        $property = $propertyFetchFactory->createProperty($identifier);
+
+        if($property == null)
+        {
+            return new Response(
+                '', 404
+            );
+        }
+        return new Response(json_encode($property));
+
     }
 }

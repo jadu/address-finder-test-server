@@ -2,7 +2,6 @@
 
 namespace App\Factory;
 
-use App\Model\ArrayOfProperty;
 use App\Model\Property;
 
 /**
@@ -26,19 +25,17 @@ class PropertyFetchFactory
      */
     public function createProperty(string $identifier)
     {
-        if ($identifier == $this->validIdentifier) 
-        {
+        if ($identifier == $this->validIdentifier) {
             $property = $this->createPropertyOne();
-            return $property; 
-        } 
-        else
-        {
+
+            return $property;
+        } else {
             return null;
         }
     }
 
     /**
-     * Create a Property to use in the createProperty response.
+     * Create a property to use in the createProperty response.
      *
      * @return Property
      */

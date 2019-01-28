@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Authentication\Authentication;
-use App\Factory\PropertySearchFactory;
 use App\Factory\PropertyFetchFactory;
+use App\Factory\PropertySearchFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,13 +61,12 @@ class PropertyController
         $propertyFetchFactory = new PropertyFetchFactory();
         $property = $propertyFetchFactory->createProperty($identifier);
 
-        if($property == null)
-        {
+        if (null == $property) {
             return new Response(
                 '', 404
             );
         }
-        return new Response(json_encode($property));
 
+        return new Response(json_encode($property));
     }
 }

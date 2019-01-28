@@ -40,7 +40,7 @@ class PropertySearchFactory
     }
 
     /**
-     * Create a Property to use in the createProperties response.
+     * Create a property to use in the createProperties response.
      *
      * @return Property
      */
@@ -64,7 +64,7 @@ class PropertySearchFactory
     }
 
     /**
-     * Create a Property to use in the createProperties response.
+     * Create a property to use in the createProperties response.
      *
      * @return Property
      */

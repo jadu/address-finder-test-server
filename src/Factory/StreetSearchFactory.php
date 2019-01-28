@@ -18,11 +18,11 @@ class StreetSearchFactory
     private $validSearchTerm = 'merus+court';
 
     /**
-     * Build an ArrayOfProperty to use in the property/search response.
+     * Build an ArrayOfStreet to use in the Street/search response.
      *
      * @param string $postcode To get a response of properties back this should be LE19+1RJ
      *
-     * @return ArrayOfProperty
+     * @return ArrayOfStreet
      */
     public function createStreets(string $searchTerm)
     {
@@ -40,7 +40,7 @@ class StreetSearchFactory
     }
 
     /**
-     * Create a Street to use in the createStreets response.
+     * Create a street to use in the createStreets response.
      *
      * @return Street
      */
@@ -57,8 +57,8 @@ class StreetSearchFactory
         return $street;
     }
 
-     /**
-     * Create a Street to use in the createStreets response.
+    /**
+     * Create a street to use in the createStreets response.
      *
      * @return Street
      */

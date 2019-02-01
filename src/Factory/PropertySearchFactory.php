@@ -48,17 +48,15 @@ class PropertySearchFactory
     {
         $property = new Property();
 
-        $property->identifier = '10001228376';
         $property->uprn = '10001228376';
         $property->usrn = '2802454';
         $property->paon = '1 UNIVERSE HOUSE';
-        $property->street_name = 'MERUS COURT';
+        $property->street = 'MERUS COURT';
         $property->locality = 'MERIDIAN BUSINESS PARK';
         $property->town = 'BRAUNSTONE TOWN';
-        $property->post_code = 'LE19 1RJ';
+        $property->postCode = 'LE19 1RJ';
         $property->easting = '454801';
         $property->northing = '302081';
-        $property->logical_status = '1';
 
         return $property;
     }
@@ -72,17 +70,15 @@ class PropertySearchFactory
     {
         $property = new Property();
 
-        $property->identifier = '45671258378';
         $property->uprn = '45671258378';
         $property->usrn = '2935454';
         $property->paon = '2 UNIVERSE HOUSE';
-        $property->street_name = 'MERUS COURT';
+        $property->street = 'MERUS COURT';
         $property->locality = 'MERIDIAN BUSINESS PARK';
         $property->town = 'BRAUNSTONE TOWN';
-        $property->post_code = 'LE19 1RJ';
+        $property->postCode = 'LE19 1RJ';
         $property->easting = '454801';
         $property->northing = '302081';
-        $property->logical_status = '2';
 
         return $property;
     }

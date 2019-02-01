@@ -12,17 +12,12 @@ class Street
     /**
      * @var string
      */
-    public $identifier;
-
-    /**
-     * @var string
-     */
     public $usrn;
 
     /**
      * @var string
      */
-    public $street_name;
+    public $street;
 
     /**
      * @var string

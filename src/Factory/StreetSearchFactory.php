@@ -47,10 +47,9 @@ class StreetSearchFactory
     private function createStreetOne()
     {
         $street = new Street();
-
-        $street->identifier = '10001228376';
+       
         $street->usrn = '2802454';
-        $street->street_name = 'MERUS COURT';
+        $street->street = 'MERUS COURT';
         $street->town = 'BRAUNSTONE TOWN';
         $street->locality = 'MERIDIAN BUSINESS PARK';
 
@@ -66,9 +65,8 @@ class StreetSearchFactory
     {
         $street = new Street();
 
-        $street->identifier = '49801493568';
         $street->usrn = '3937452';
-        $street->street_name = 'MERUS COURT';
+        $street->street = 'MERUS COURT';
         $street->town = 'BRAUNSTONE TOWN';
         $street->locality = 'MERIDIAN BUSINESS PARK';
 

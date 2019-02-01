@@ -43,9 +43,8 @@ class StreetFetchFactory
     {
         $street = new Street();
 
-        $street->identifier = '10001228376';
         $street->usrn = '2802454';
-        $street->street_name = 'MERUS COURT';
+        $street->street = 'MERUS COURT';
         $street->town = 'BRAUNSTONE TOWN';
         $street->locality = 'MERIDIAN BUSINESS PARK';
 

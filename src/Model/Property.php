@@ -12,11 +12,6 @@ class Property
     /**
      * @var string
      */
-    public $identifier;
-
-    /**
-     * @var string
-     */
     public $uprn;
 
     /**
@@ -34,10 +29,10 @@ class Property
      */
     public $saon;
 
-    /**
+   /**
      * @var string
      */
-    public $street_name;
+    public $street;
 
     /**
      * @var string
@@ -52,12 +47,12 @@ class Property
     /**
      * @var string
      */
-    public $post_town;
+    public $postTown;
 
     /**
      * @var string
      */
-    public $post_code;
+    public $postCode;
 
     /**
      * @var string
@@ -73,9 +68,4 @@ class Property
      * @var string
      */
     public $ward;
-
-    /**
-     * @var string
-     */
-    public $logical_status;
 }

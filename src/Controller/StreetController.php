@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use App\Authentication\Authentication;
-use App\Factory\StreetFetchFactory;
-use App\Factory\StreetSearchFactory;
+use App\Factory\DataFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,8 +32,8 @@ class StreetController
             );
         }
 
-        $propertySearchFactory = new StreetSearchFactory();
-        $arrayOfStreets = $propertySearchFactory->createStreets($term);
+        $dataFactory = new DataFactory();
+        $arrayOfStreets = $dataFactory->createStreets(urldecode($term));
 
         return new Response(
            json_encode($arrayOfStreets)
@@ -58,8 +57,8 @@ class StreetController
             );
         }
 
-        $streetFetchFactory = new StreetFetchFactory();
-        $street = $streetFetchFactory->createStreet($identifier);
+        $dataFactory = new DataFactory();
+        $street = $dataFactory->createStreet(urldecode($identifier));
 
         if (null == $street) {
             return new Response(

@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use App\Authentication\Authentication;
-use App\Factory\PropertyFetchFactory;
-use App\Factory\PropertySearchFactory;
+use App\Factory\DataFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,9 +32,9 @@ class PropertyController
             );
         }
 
-        $propertySearchFactory = new PropertySearchFactory();
-        $arrayOfProperties = $propertySearchFactory->createProperties($postcode);
-
+        $dataFactory = new DataFactory();
+        $arrayOfProperties = $dataFactory->createProperties(urldecode($postcode));
+    
         return new Response(
            json_encode($arrayOfProperties)
         );
@@ -58,9 +57,8 @@ class PropertyController
             );
         }
 
-        $propertyFetchFactory = new PropertyFetchFactory();
-        $property = $propertyFetchFactory->createProperty($identifier);
-
+        $dataFactory = new DataFactory();
+        $property = $dataFactory->createProperty(urldecode($identifier));
         if (null == $property) {
             return new Response(
                 '', 404

@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use JsonSerializable;
+
 /**
  * Class Address.
  *
@@ -69,16 +70,16 @@ class Address implements JsonSerializable
      * @var string
      */
     private $externalReference;
-    
+
     /**
      * @var string
      */
     private $logicalStatus;
-    
+
     /**
-     * set paon
-     * 
-     * @var string  $paon
+     * set paon.
+     *
+     * @var string
      */
     public function setPaon($paon)
     {
@@ -86,9 +87,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set saon
-     * 
-     * @var string  $saon
+     * set saon.
+     *
+     * @var string
      */
     public function setSaon($saon)
     {
@@ -96,9 +97,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set street
-     * 
-     * @var string  $street
+     * set street.
+     *
+     * @var string
      */
     public function setStreet($street)
     {
@@ -106,20 +107,19 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set locality
-     * 
-     * @var string  $locality
+     * set locality.
+     *
+     * @var string
      */
     public function setLocality($locality)
     {
         $this->locality = $locality;
     }
 
-
     /**
-     * set town
-     * 
-     * @var string  $town
+     * set town.
+     *
+     * @var string
      */
     public function setTown($town)
     {
@@ -127,9 +127,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set postTown
-     * 
-     * @var string  $postTown
+     * set postTown.
+     *
+     * @var string
      */
     public function setPostTown($postTown)
     {
@@ -137,9 +137,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set postCode
-     * 
-     * @var string  $postCode
+     * set postCode.
+     *
+     * @var string
      */
     public function setPostCode($postCode)
     {
@@ -147,9 +147,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set easting
-     * 
-     * @var string  $easting
+     * set easting.
+     *
+     * @var string
      */
     public function setEasting($easting)
     {
@@ -157,9 +157,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set northing
-     * 
-     * @var string  $northing
+     * set northing.
+     *
+     * @var string
      */
     public function setNorthing($northing)
     {
@@ -167,9 +167,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set uprn
-     * 
-     * @var string  $uprn
+     * set uprn.
+     *
+     * @var string
      */
     public function setUprn($uprn)
     {
@@ -177,9 +177,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set usrn
-     * 
-     * @var string  $usrn
+     * set usrn.
+     *
+     * @var string
      */
     public function setUsrn($usrn)
     {
@@ -187,9 +187,9 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set externalReference
-     * 
-     * @var string  $externalReference
+     * set externalReference.
+     *
+     * @var string
      */
     public function setExternalReference($externalReference)
     {
@@ -197,18 +197,18 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set logicalStatus
-     * 
-     * @var string  $logicalStatus
+     * set logicalStatus.
+     *
+     * @var string
      */
-    public function setLogicalStatus($logicalStatus) 
+    public function setLogicalStatus($logicalStatus)
     {
         $this->logicalStatus = $logicalStatus;
     }
 
     /**
-     * Get Paon
-     * 
+     * Get Paon.
+     *
      * @return string
      */
     public function getPaon()
@@ -217,8 +217,8 @@ class Address implements JsonSerializable
     }
 
     /**
-     * Get Saon
-     * 
+     * Get Saon.
+     *
      * @return string
      */
     public function getSaon()
@@ -227,8 +227,8 @@ class Address implements JsonSerializable
     }
 
     /**
-     * Get Street
-     * 
+     * Get Street.
+     *
      * @return string
      */
     public function getStreet()
@@ -266,10 +266,9 @@ class Address implements JsonSerializable
         return $this->postTown;
     }
 
-  
     /**
      * Get PostCode.
-     * 
+     *
      * @return string
      */
     public function getPostCode()
@@ -318,8 +317,8 @@ class Address implements JsonSerializable
     }
 
     /**
-     * Get externalRefrence
-     * 
+     * Get externalRefrence.
+     *
      * @return string
      */
     public function getExternalReference()
@@ -332,12 +331,13 @@ class Address implements JsonSerializable
      *
      * @return string
      */
-    public function getLogicalStatus() 
+    public function getLogicalStatus()
     {
         return $this->logicalStatus;
     }
 
-    public function jsonSerialize() {
+    public function jsonSerialize()
+    {
         return [
             'paon' => $this->getPaon(),
             'saon' => $this->getSaon(),
@@ -351,7 +351,7 @@ class Address implements JsonSerializable
             'uprn' => $this->getUprn(),
             'usrn' => $this->getUsrn(),
             'externalReference' => $this->getExternalReference(),
-            'logicalstatus' => $this->getLogicalStatus()
+            'logicalstatus' => $this->getLogicalStatus(),
         ];
     }
 }

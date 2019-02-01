@@ -16,11 +16,11 @@ class DataFactory
      */
     private $validSearchTerm = 'meruscourt';
 
-     /**
+    /**
      * @var string
      */
     private $validIdentifier = '10001228376';
-    
+
     /**
      * @var string
      */
@@ -36,10 +36,11 @@ class DataFactory
     public function createStreets(string $searchTerm)
     {
         $strippedSearchTerm = preg_replace('/\s/', '', $searchTerm);
-        if (strcasecmp($strippedSearchTerm, $this->validSearchTerm) === 0) {
+        if (0 === strcasecmp($strippedSearchTerm, $this->validSearchTerm)) {
             $streetOne = $this->createStreetOne();
             $streetTwo = $this->createStreetTwo();
-            return array($streetOne, $streetTwo);
+
+            return [$streetOne, $streetTwo];
         } else {
             return [];
         }
@@ -55,8 +56,9 @@ class DataFactory
     public function createStreet(string $identifier)
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
-        if (strcasecmp($strippedIdentifier, $this->validIdentifier) === 0) {
+        if (0 === strcasecmp($strippedIdentifier, $this->validIdentifier)) {
             $street = $this->createStreetOne();
+
             return $street;
         } else {
             return null;
@@ -73,10 +75,11 @@ class DataFactory
     public function createProperties(string $postcode)
     {
         $strippedPostcode = preg_replace('/\s/', '', $postcode);
-        if ( strcasecmp($strippedPostcode, $this->validPostcode) === 0) {
+        if (0 === strcasecmp($strippedPostcode, $this->validPostcode)) {
             $propertyOne = $this->createPropertyOne();
             $propertyTwo = $this->createPropertyTwo();
-            return array($propertyOne, $propertyTwo);
+
+            return [$propertyOne, $propertyTwo];
         } else {
             return [];
         }
@@ -92,7 +95,7 @@ class DataFactory
     public function createProperty(string $identifier)
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
-        if (strcasecmp($identifier, $this->validIdentifier) === 0 ) {
+        if (0 === strcasecmp($identifier, $this->validIdentifier)) {
             $property = $this->createPropertyOne();
 
             return $property;
@@ -100,7 +103,7 @@ class DataFactory
             return null;
         }
     }
-    
+
     /**
      * Create a street to use in the createStreets response.
      *
@@ -136,7 +139,6 @@ class DataFactory
 
         return $address;
     }
-
 
     /**
      * Create a property to use in the createProperties response.
@@ -183,5 +185,4 @@ class DataFactory
 
         return $address;
     }
-    
 }

@@ -34,7 +34,7 @@ class PropertyController
 
         $dataFactory = new DataFactory();
         $arrayOfProperties = $dataFactory->createProperties(urldecode($postcode));
-    
+
         return new Response(
            json_encode($arrayOfProperties)
         );

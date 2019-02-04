@@ -3,6 +3,10 @@
 namespace App\Factory;
 
 use App\Model\Address;
+use App\Model\PropertiesResponse;
+use App\Model\PropertyResponse;
+use App\Model\StreetResponse;
+use App\Model\StreetsResponse;
 
 /**
  * Authentication.
@@ -36,14 +40,19 @@ class DataFactory
     public function createStreets(string $searchTerm)
     {
         $strippedSearchTerm = preg_replace('/\s/', '', $searchTerm);
+
+        $response = new StreetsResponse();
+
         if (0 === strcasecmp($strippedSearchTerm, $this->validSearchTerm)) {
             $streetOne = $this->createStreetOne();
             $streetTwo = $this->createStreetTwo();
 
-            return [$streetOne, $streetTwo];
+            $response->setStreets([$streetOne, $streetTwo]);
         } else {
-            return [];
+            $response->setStreets([]);
         }
+
+        return $response;
     }
 
     /**
@@ -57,9 +66,11 @@ class DataFactory
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
         if (0 === strcasecmp($strippedIdentifier, $this->validIdentifier)) {
-            $street = $this->createStreetOne();
+            $response = new StreetResponse();
 
-            return $street;
+            $response->setStreet($this->createStreetOne());
+
+            return $response;
         } else {
             return null;
         }
@@ -75,14 +86,19 @@ class DataFactory
     public function createProperties(string $postcode)
     {
         $strippedPostcode = preg_replace('/\s/', '', $postcode);
+
+        $response = new PropertiesResponse();
+
         if (0 === strcasecmp($strippedPostcode, $this->validPostcode)) {
             $propertyOne = $this->createPropertyOne();
             $propertyTwo = $this->createPropertyTwo();
 
-            return [$propertyOne, $propertyTwo];
+            $response->setProperties([$propertyOne, $propertyTwo]);
         } else {
-            return [];
+            $response->setProperties([]);
         }
+
+        return $response;
     }
 
     /**
@@ -96,7 +112,9 @@ class DataFactory
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
         if (0 === strcasecmp($identifier, $this->validIdentifier)) {
-            $property = $this->createPropertyOne();
+            $property = new PropertyResponse();
+
+            $property->setProperty($this->createPropertyOne());
 
             return $property;
         } else {
@@ -113,7 +131,7 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setExternalReference('10001228376');
+        $address->setIdentifier('10001228376');
         $address->setUsrn('2802454');
         $address->setStreet('MERUS COURT');
         $address->setTown('BRAUNSTONE TOWN');
@@ -131,7 +149,7 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setExternalReference('45671258378');
+        $address->setIdentifier('45671258378');
         $address->setUsrn('3937452');
         $address->setStreet('MERUS COURT');
         $address->setTown('BRAUNSTONE TOWN');
@@ -149,7 +167,7 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setExternalReference('10001228376');
+        $address->setIdentifier('10001228376');
         $address->setUprn('10001228376');
         $address->setUsrn('2802454');
         $address->setPaon('1 UNIVERSE HOUSE');
@@ -172,7 +190,7 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setExternalReference('45671258378');
+        $address->setIdentifier('45671258378');
         $address->setUprn('45671258378');
         $address->setUsrn('2935454');
         $address->setPaon('2 UNIVERSE HOUSE');

@@ -39,12 +39,12 @@ class Address implements JsonSerializable
     /**
      * @var string
      */
-    private $postTown;
+    private $post_town;
 
     /**
      * @var string
      */
-    private $postCode;
+    private $post_code;
 
     /**
      * @var int
@@ -69,17 +69,17 @@ class Address implements JsonSerializable
     /**
      * @var string
      */
-    private $externalReference;
+    private $identifier;
 
     /**
      * @var string
      */
-    private $logicalStatus;
+    private $logical_status;
 
     /**
      * set paon.
      *
-     * @var string
+     * @param string
      */
     public function setPaon($paon)
     {
@@ -89,7 +89,7 @@ class Address implements JsonSerializable
     /**
      * set saon.
      *
-     * @var string
+     * @param string
      */
     public function setSaon($saon)
     {
@@ -99,7 +99,7 @@ class Address implements JsonSerializable
     /**
      * set street.
      *
-     * @var string
+     * @param string
      */
     public function setStreet($street)
     {
@@ -109,7 +109,7 @@ class Address implements JsonSerializable
     /**
      * set locality.
      *
-     * @var string
+     * @param string
      */
     public function setLocality($locality)
     {
@@ -119,7 +119,7 @@ class Address implements JsonSerializable
     /**
      * set town.
      *
-     * @var string
+     * @param string
      */
     public function setTown($town)
     {
@@ -129,27 +129,27 @@ class Address implements JsonSerializable
     /**
      * set postTown.
      *
-     * @var string
+     * @param string
      */
-    public function setPostTown($postTown)
+    public function setPostTown($post_town)
     {
-        $this->postTown = $postTown;
+        $this->post_town = $post_town;
     }
 
     /**
      * set postCode.
      *
-     * @var string
+     * @param string
      */
-    public function setPostCode($postCode)
+    public function setPostCode($post_code)
     {
-        $this->postCode = $postCode;
+        $this->post_code = $post_code;
     }
 
     /**
      * set easting.
      *
-     * @var string
+     * @param string
      */
     public function setEasting($easting)
     {
@@ -159,7 +159,7 @@ class Address implements JsonSerializable
     /**
      * set northing.
      *
-     * @var string
+     * @param string
      */
     public function setNorthing($northing)
     {
@@ -169,7 +169,7 @@ class Address implements JsonSerializable
     /**
      * set uprn.
      *
-     * @var string
+     * @param string
      */
     public function setUprn($uprn)
     {
@@ -179,7 +179,7 @@ class Address implements JsonSerializable
     /**
      * set usrn.
      *
-     * @var string
+     * @param string
      */
     public function setUsrn($usrn)
     {
@@ -187,23 +187,23 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set externalReference.
+     * set identifier.
      *
-     * @var string
+     * @param string
      */
-    public function setExternalReference($externalReference)
+    public function setIdentifier($identifier)
     {
-        $this->externalReference = $externalReference;
+        $this->identifier = $identifier;
     }
 
     /**
      * set logicalStatus.
      *
-     * @var string
+     * @param string
      */
-    public function setLogicalStatus($logicalStatus)
+    public function setLogicalStatus($logical_status)
     {
-        $this->logicalStatus = $logicalStatus;
+        $this->logical_status = $logical_status;
     }
 
     /**
@@ -263,7 +263,7 @@ class Address implements JsonSerializable
      */
     public function getPostTown()
     {
-        return $this->postTown;
+        return $this->post_town;
     }
 
     /**
@@ -273,7 +273,7 @@ class Address implements JsonSerializable
      */
     public function getPostCode()
     {
-        return $this->postCode;
+        return $this->post_code;
     }
 
     /**
@@ -317,13 +317,13 @@ class Address implements JsonSerializable
     }
 
     /**
-     * Get externalRefrence.
+     * Get Identifier.
      *
      * @return string
      */
-    public function getExternalReference()
+    public function getIdentifier()
     {
-        return $this->externalReference;
+        return $this->identifier;
     }
 
     /**
@@ -333,25 +333,25 @@ class Address implements JsonSerializable
      */
     public function getLogicalStatus()
     {
-        return $this->logicalStatus;
+        return $this->logical_status;
     }
 
     public function jsonSerialize()
     {
         return [
+            'identifier' => $this->getIdentifier(),
             'paon' => $this->getPaon(),
             'saon' => $this->getSaon(),
             'street' => $this->getStreet(),
             'locality' => $this->getLocality(),
             'town' => $this->getTown(),
-            'postTown' => $this->getPostTown(),
-            'postCode' => $this->getPostCode(),
+            'post_Town' => $this->getPostTown(),
+            'post_Code' => $this->getPostCode(),
             'easting' => $this->getEasting(),
             'northing' => $this->getNorthing(),
             'uprn' => $this->getUprn(),
             'usrn' => $this->getUsrn(),
-            'externalReference' => $this->getExternalReference(),
-            'logicalstatus' => $this->getLogicalStatus(),
+            'logical_status' => $this->getLogicalStatus(),
         ];
     }
 }

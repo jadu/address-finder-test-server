@@ -351,7 +351,6 @@ class Address implements JsonSerializable
         return $this->logical_status;
     }
 
-
     /**
      * Get ward.
      *
@@ -361,7 +360,7 @@ class Address implements JsonSerializable
     {
         return $this->ward;
     }
-    
+
     public function jsonSerialize()
     {
         return [

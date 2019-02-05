@@ -127,7 +127,7 @@ class DataFactoryTest extends TestCase
 
     private function createValidStreets()
     {
-        return '{"streets":[{"identifier":"10001228376","paon":null,"saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":null,"saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"3937452","logical_status":null}]}';
+        return '{"streets":[{"identifier":"10001228376","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"3937452","logical_status":null}]}';
     }
 
     private function createEmptyStreets()
@@ -137,7 +137,7 @@ class DataFactoryTest extends TestCase
    
     private function createValidProperties()
     {
-        return '{"properties":[{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":"2 UNIVERSE HOUSE","saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"45671258378","usrn":"2935454","logical_status":null}]}';
+        return '{"properties":[{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":"2 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"45671258378","usrn":"2935454","logical_status":null}]}';
     }
   
     private function createEmptyProperties()
@@ -147,11 +147,11 @@ class DataFactoryTest extends TestCase
 
     private function createValidStreet()
     {
-        return '{"street":{"identifier":"10001228376","paon":null,"saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null}}';
+        return '{"street":{"identifier":"10001228376","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null}}';
     }
 
     private function createValidProperty()
     {
-        return '{"property":{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":null,"locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null}}';
+        return '{"property":{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null}}';
     }
 }

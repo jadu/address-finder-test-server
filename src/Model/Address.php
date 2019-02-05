@@ -106,9 +106,9 @@ class Address implements JsonSerializable
      *
      * @param string
      */
-    public function setStreetName($street)
+    public function setStreetName($street_name)
     {
-        $this->street = $street;
+        $this->street_name = $street_name;
     }
 
     /**
@@ -246,7 +246,7 @@ class Address implements JsonSerializable
      *
      * @return string
      */
-    public function getStreet()
+    public function getStreetName()
     {
         return $this->street_name;
     }
@@ -367,7 +367,7 @@ class Address implements JsonSerializable
             'identifier' => $this->getIdentifier(),
             'paon' => $this->getPaon(),
             'saon' => $this->getSaon(),
-            'street_name' => $this->getStreet(),
+            'street_name' => $this->getStreetName(),
             'locality' => $this->getLocality(),
             'town' => $this->getTown(),
             'post_town' => $this->getPostTown(),

@@ -24,7 +24,7 @@ class Address implements JsonSerializable
     /**
      * @var string
      */
-    private $street;
+    private $street_name;
 
     /**
      * @var string
@@ -77,6 +77,11 @@ class Address implements JsonSerializable
     private $logical_status;
 
     /**
+     * @var string
+     */
+    private $ward;
+
+    /**
      * set paon.
      *
      * @param string
@@ -97,11 +102,11 @@ class Address implements JsonSerializable
     }
 
     /**
-     * set street.
+     * set street_name.
      *
      * @param string
      */
-    public function setStreet($street)
+    public function setStreetName($street)
     {
         $this->street = $street;
     }
@@ -207,6 +212,16 @@ class Address implements JsonSerializable
     }
 
     /**
+     * set ward.
+     *
+     * @param string
+     */
+    public function setWard($ward)
+    {
+        $this->ward = $ward;
+    }
+
+    /**
      * Get Paon.
      *
      * @return string
@@ -233,7 +248,7 @@ class Address implements JsonSerializable
      */
     public function getStreet()
     {
-        return $this->street;
+        return $this->street_name;
     }
 
     /**
@@ -336,17 +351,28 @@ class Address implements JsonSerializable
         return $this->logical_status;
     }
 
+
+    /**
+     * Get ward.
+     *
+     * @return string
+     */
+    public function getWard()
+    {
+        return $this->ward;
+    }
+    
     public function jsonSerialize()
     {
         return [
             'identifier' => $this->getIdentifier(),
             'paon' => $this->getPaon(),
             'saon' => $this->getSaon(),
-            'street' => $this->getStreet(),
+            'street_name' => $this->getStreet(),
             'locality' => $this->getLocality(),
             'town' => $this->getTown(),
-            'post_Town' => $this->getPostTown(),
-            'post_Code' => $this->getPostCode(),
+            'post_town' => $this->getPostTown(),
+            'post_code' => $this->getPostCode(),
             'easting' => $this->getEasting(),
             'northing' => $this->getNorthing(),
             'uprn' => $this->getUprn(),

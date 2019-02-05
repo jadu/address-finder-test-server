@@ -133,7 +133,7 @@ class DataFactory
 
         $address->setIdentifier('10001228376');
         $address->setUsrn('2802454');
-        $address->setStreet('MERUS COURT');
+        $address->setStreetName('MERUS COURT');
         $address->setTown('BRAUNSTONE TOWN');
         $address->setLocality('MERIDIAN BUSINESS PARK');
 
@@ -151,7 +151,7 @@ class DataFactory
 
         $address->setIdentifier('45671258378');
         $address->setUsrn('3937452');
-        $address->setStreet('MERUS COURT');
+        $address->setStreetName('MERUS COURT');
         $address->setTown('BRAUNSTONE TOWN');
         $address->setLocality('MERIDIAN BUSINESS PARK');
 
@@ -171,7 +171,7 @@ class DataFactory
         $address->setUprn('10001228376');
         $address->setUsrn('2802454');
         $address->setPaon('1 UNIVERSE HOUSE');
-        $address->setStreet('MERUS COURT');
+        $address->setStreetName('MERUS COURT');
         $address->setLocality('MERIDIAN BUSINESS PARK');
         $address->setTown('BRAUNSTONE TOWN');
         $address->setPostCode('LE19 1RJ');
@@ -194,7 +194,7 @@ class DataFactory
         $address->setUprn('45671258378');
         $address->setUsrn('2935454');
         $address->setPaon('2 UNIVERSE HOUSE');
-        $address->setStreet('MERUS COURT');
+        $address->setStreetName('MERUS COURT');
         $address->setLocality('MERIDIAN BUSINESS PARK');
         $address->setTown('BRAUNSTONE TOWN');
         $address->setPostCode('LE19 1RJ');

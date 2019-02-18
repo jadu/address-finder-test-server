@@ -9,7 +9,7 @@ use App\Model\StreetResponse;
 use App\Model\StreetsResponse;
 
 /**
- * Authentication.
+ * DataFactory.
  *
  * @author Jadu Ltd.
  */

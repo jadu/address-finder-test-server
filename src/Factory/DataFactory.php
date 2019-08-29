@@ -33,9 +33,9 @@ class DataFactory
     /**
      * Build an Address[] to use in the Street/search response.
      *
-     * @param string $postcode To get a response of properties back this should be LE19+1RJ
+     * @param string $searchTerm
      *
-     * @return Address[]
+     * @return StreetsResponse
      */
     public function createStreets(string $searchTerm)
     {
@@ -44,10 +44,7 @@ class DataFactory
         $response = new StreetsResponse();
 
         if (0 === strcasecmp($strippedSearchTerm, $this->validSearchTerm)) {
-            $streetOne = $this->createStreetOne();
-            $streetTwo = $this->createStreetTwo();
-
-            $response->setStreets([$streetOne, $streetTwo]);
+            $response->setStreets($this->getValidStreets());
         } else {
             $response->setStreets([]);
         }
@@ -58,22 +55,23 @@ class DataFactory
     /**
      * Build a Address to use in the Street/fetch response.
      *
-     * @param string $validIdentifier To get a response back this should be '10001228376'
+     * @param string $identifier
      *
-     * @return Address
+     * @return StreetResponse|null
      */
     public function createStreet(string $identifier)
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
-        if (0 === strcasecmp($strippedIdentifier, $this->validIdentifier)) {
-            $response = new StreetResponse();
+        foreach ($this->getValidStreets() as $street) {
+            if (0 === strcasecmp($strippedIdentifier, $street->getIdentifier())) {
+                $response = new StreetResponse();
+                $response->setStreet($street);
 
-            $response->setStreet($this->createStreetOne());
-
-            return $response;
-        } else {
-            return null;
+                return $response;
+            }
         }
+
+        return null;
     }
 
     /**
@@ -81,7 +79,7 @@ class DataFactory
      *
      * @param string $postcode To get a response of properties back this should be LE191RJ
      *
-     * @return Address[]
+     * @return PropertiesResponse
      */
     public function createProperties(string $postcode)
     {
@@ -90,10 +88,7 @@ class DataFactory
         $response = new PropertiesResponse();
 
         if (0 === strcasecmp($strippedPostcode, $this->validPostcode)) {
-            $propertyOne = $this->createPropertyOne();
-            $propertyTwo = $this->createPropertyTwo();
-
-            $response->setProperties([$propertyOne, $propertyTwo]);
+            $response->setProperties($this->getValidProperties());
         } else {
             $response->setProperties([]);
         }
@@ -104,22 +99,39 @@ class DataFactory
     /**
      * Build an Address to use in the property/fetch response.
      *
-     * @param string $validIdentifier To get a response back this should be '10001228376'
+     * @param string $identifier
      *
-     * @return Address
+     * @return PropertyResponse|null
      */
     public function createProperty(string $identifier)
     {
         $strippedIdentifier = preg_replace('/\s/', '', $identifier);
-        if (0 === strcasecmp($identifier, $this->validIdentifier)) {
-            $property = new PropertyResponse();
+        foreach ($this->getValidProperties() as $property) {
+            if (0 === strcasecmp($strippedIdentifier, $property->getIdentifier())) {
+                $response = new PropertyResponse();
+                $response->setProperty($property);
 
-            $property->setProperty($this->createPropertyOne());
-
-            return $property;
-        } else {
-            return null;
+                return $response;
+            }
         }
+
+        return null;
+    }
+
+    /**
+     * @return Address[]
+     */
+    private function getValidProperties()
+    {
+        return [$this->createPropertyOne(), $this->createPropertyTwo()];
+    }
+
+    /**
+     * @return Address[]
+     */
+    private function getValidStreets()
+    {
+        return [$this->createStreetOne(), $this->createStreetTwo()];
     }
 
     /**
@@ -131,7 +143,7 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setIdentifier('10001228376');
+        $address->setIdentifier('REF-2802454');
         $address->setUsrn('2802454');
         $address->setStreetName('MERUS COURT');
         $address->setTown('BRAUNSTONE TOWN');
@@ -149,11 +161,11 @@ class DataFactory
     {
         $address = new Address();
 
-        $address->setIdentifier('45671258378');
+        $address->setIdentifier('REF-3937452');
         $address->setUsrn('3937452');
         $address->setStreetName('MERUS COURT');
-        $address->setTown('BRAUNSTONE TOWN');
-        $address->setLocality('MERIDIAN BUSINESS PARK');
+        $address->setTown('NOTTINGHAM');
+        $address->setLocality('');
 
         return $address;
     }
@@ -161,13 +173,13 @@ class DataFactory
     /**
      * Create a property to use in the createProperties response.
      *
-     * @return Property
+     * @return Address
      */
     private function createPropertyOne()
     {
         $address = new Address();
 
-        $address->setIdentifier('10001228376');
+        $address->setIdentifier('REF-10001228376');
         $address->setUprn('10001228376');
         $address->setUsrn('2802454');
         $address->setPaon('1 UNIVERSE HOUSE');
@@ -184,13 +196,13 @@ class DataFactory
     /**
      * Create a property to use in the createProperties response.
      *
-     * @return Property
+     * @return Address
      */
     private function createPropertyTwo()
     {
         $address = new Address();
 
-        $address->setIdentifier('45671258378');
+        $address->setIdentifier('REF-45671258378');
         $address->setUprn('45671258378');
         $address->setUsrn('2935454');
         $address->setPaon('2 UNIVERSE HOUSE');

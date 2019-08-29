@@ -361,6 +361,9 @@ class Address implements JsonSerializable
         return $this->ward;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [

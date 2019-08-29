@@ -36,6 +36,9 @@ class StreetResponse implements JsonSerializable
         return $this->street;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [

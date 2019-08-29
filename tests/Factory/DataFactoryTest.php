@@ -2,25 +2,20 @@
 namespace App\Tests\Factory;
 
 use App\Factory\DataFactory;
-use App\Model\Address;
-use App\Model\PropertiesResponse;
-use App\Model\PropertyResponse;
-use App\Model\StreetResponse;
-use App\Model\StreetsResponse;
 
 use PHPUnit\Framework\TestCase;
 
-class DataFactoryTest extends TestCase 
+class DataFactoryTest extends TestCase
 {
 
     public function testCreateStreetsExpectingValidResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createValidStreets();
 
-        //Act 
+        //Act
         $result = $dataFactory->createStreets('meruscourt');
 
         //Assert
@@ -28,13 +23,13 @@ class DataFactoryTest extends TestCase
     }
 
     public function testCreateStreetsExpectingEmpytyResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createEmptyStreets();
 
-        //Act 
+        //Act
         $result = $dataFactory->createStreets('InvalidSearchTerm');
 
         //Assert
@@ -42,13 +37,13 @@ class DataFactoryTest extends TestCase
     }
 
     public function testCreatePropertiesExpectingValidResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createValidProperties();
 
-        //Act 
+        //Act
         $result = $dataFactory->createProperties('LE191RJ');
 
         //Assert
@@ -56,13 +51,13 @@ class DataFactoryTest extends TestCase
     }
 
     public function testCreatePropertiesExpectingEmptyResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createEmptyProperties();
 
-        //Act 
+        //Act
         $result = $dataFactory->createProperties('InvalidPostCode');
 
         //Assert
@@ -70,27 +65,27 @@ class DataFactoryTest extends TestCase
     }
 
     public function testCreateStreetExpectingValidResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createValidStreet();
 
-        //Act 
-        $result = $dataFactory->createStreet('10001228376');
+        //Act
+        $result = $dataFactory->createStreet('REF-2802454');
 
         //Assert
         $this->assertEquals($expectedResult, json_encode($result));
     }
 
     public function testCreateStreetExpectingNullResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = null;
 
-        //Act 
+        //Act
         $result = $dataFactory->createStreet('INVALIDSTREET');
 
         //Assert
@@ -98,27 +93,27 @@ class DataFactoryTest extends TestCase
     }
 
     public function testCreatePropertyExpectingValidResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = $this->createValidProperty();
 
-        //Act 
-        $result = $dataFactory->createProperty('10001228376');
+        //Act
+        $result = $dataFactory->createProperty('REF-10001228376');
 
         //Assert
         $this->assertEquals($expectedResult, json_encode($result));
     }
 
     public function testCreatePropertyExpectingNullResponse() {
-       
+
         //Arrange
         $dataFactory = new DataFactory();
 
         $expectedResult = null;
 
-        //Act 
+        //Act
         $result = $dataFactory->createProperty('INVALIDPROPERTY');
 
         //Assert
@@ -127,19 +122,19 @@ class DataFactoryTest extends TestCase
 
     private function createValidStreets()
     {
-        return '{"streets":[{"identifier":"10001228376","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"3937452","logical_status":null}]}';
+        return '{"streets":[{"identifier":"REF-2802454","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null},{"identifier":"REF-3937452","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"","town":"NOTTINGHAM","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"3937452","logical_status":null}]}';
     }
 
     private function createEmptyStreets()
     {
         return '{"streets":[]}';
     }
-   
+
     private function createValidProperties()
     {
-        return '{"properties":[{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null},{"identifier":"45671258378","paon":"2 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"45671258378","usrn":"2935454","logical_status":null}]}';
+        return '{"properties":[{"identifier":"REF-10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null},{"identifier":"REF-45671258378","paon":"2 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"45671258378","usrn":"2935454","logical_status":null}]}';
     }
-  
+
     private function createEmptyProperties()
     {
         return '{"properties":[]}';
@@ -147,11 +142,11 @@ class DataFactoryTest extends TestCase
 
     private function createValidStreet()
     {
-        return '{"street":{"identifier":"10001228376","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null}}';
+        return '{"street":{"identifier":"REF-2802454","paon":null,"saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":null,"easting":null,"northing":null,"uprn":null,"usrn":"2802454","logical_status":null}}';
     }
 
     private function createValidProperty()
     {
-        return '{"property":{"identifier":"10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null}}';
+        return '{"property":{"identifier":"REF-10001228376","paon":"1 UNIVERSE HOUSE","saon":null,"street_name":"MERUS COURT","locality":"MERIDIAN BUSINESS PARK","town":"BRAUNSTONE TOWN","post_town":null,"post_code":"LE19 1RJ","easting":"454801","northing":"302081","uprn":"10001228376","usrn":"2802454","logical_status":null}}';
     }
 }

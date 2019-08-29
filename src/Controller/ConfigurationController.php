@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Authentication\Authentication;
 use App\Factory\ConfigurationFactory;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +20,8 @@ class ConfigurationController
      * @Route("/configuration/fetch")
      *
      * @param Request $request
-     * @param string $identifier
+     *
+     * @return JsonResponse|Response
      */
     public function fetch(Request $request)
     {
@@ -27,20 +29,18 @@ class ConfigurationController
         $isAuthenticated = $authentication->authenticate($request);
 
         if (false == $isAuthenticated) {
-            return new Response(
-                '', 401
-            );
+            return new Response('', Response::HTTP_UNAUTHORIZED);
         }
 
         $configurationFactory = new ConfigurationFactory();
-        $configuration = $configurationFactory->createConfiguration();
+        $configuration = $configurationFactory->createConfiguration(
+            $request->getSchemeAndHttpHost()
+        );
 
         if (null == $configuration) {
-            return new Response(
-                '', 404
-            );
+            return new Response('', Response::HTTP_NOT_FOUND);
         }
 
-        return new Response(json_encode($configuration));
+        return new JsonResponse($configuration);
     }
 }

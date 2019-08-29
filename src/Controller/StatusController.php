@@ -18,6 +18,8 @@ class StatusController
      * @Route("/status")
      *
      * @param Request $request
+     *
+     * @return Response
      */
     public function status(Request $request)
     {
@@ -25,9 +27,7 @@ class StatusController
         $isAuthenticated = $authentication->authenticate($request);
 
         if (false == $isAuthenticated) {
-            return new Response(
-                '', 401
-            );
+            return new Response('', Response::HTTP_UNAUTHORIZED);
         }
 
         return new Response();

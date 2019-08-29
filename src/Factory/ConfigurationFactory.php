@@ -16,12 +16,14 @@ class ConfigurationFactory
     /**
      * Build a ConfigurationModel to use in the configuration/fetch response.
      *
+     * @param string $base
+     *
      * @return Configuration
      */
-    public function createConfiguration()
+    public function createConfiguration($base = 'https://example.com')
     {
         $response = new Configuration();
-        $response->setBaseUri('https://example.com/address-finder');
+        $response->setBaseUri($base);
         $response->setStatusPath('/status');
         $response->setPropertyLookup($this->createPropertyLookUp());
         $response->setstreetLookup($this->createStreetLookUp());

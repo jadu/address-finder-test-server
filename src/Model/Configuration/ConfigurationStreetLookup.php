@@ -44,7 +44,7 @@ class ConfigurationStreetLookup implements JsonSerializable
     /**
      * Get search_path.
      *
-     * @return object
+     * @return string
      */
     public function getSearchPath()
     {
@@ -54,13 +54,16 @@ class ConfigurationStreetLookup implements JsonSerializable
     /**
      * Get fetch_path.
      *
-     * @return object
+     * @return string
      */
     public function getFetchPath()
     {
         return $this->fetch_path;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [

@@ -36,6 +36,9 @@ class PropertiesResponse implements JsonSerializable
         return $this->properties;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [

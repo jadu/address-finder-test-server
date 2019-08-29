@@ -111,6 +111,9 @@ class Configuration implements JsonSerializable
         return $this->street_lookup;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function jsonSerialize()
     {
         return [
